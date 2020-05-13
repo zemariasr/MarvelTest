@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .red
+        label.textColor = .yellow
         return label
     }()
     
@@ -59,7 +59,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! QuadrinhosViewController
+        let vc = segue.destination as! ListaQuadrinhosViewController
+       // let vc = segue.destination as! QuadrinhosViewController
         vc.character = characters[tableView.indexPathForSelectedRow!.row]
         
     }

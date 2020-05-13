@@ -21,6 +21,7 @@
 		29AC18A8246B63890015931A /* Pesquisa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC18A7246B63890015931A /* Pesquisa.swift */; };
 		29AC18AA246B711A0015931A /* QuadrinhosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC18A9246B711A0015931A /* QuadrinhosViewController.swift */; };
 		29AC18AC246B77ED0015931A /* ComicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC18AB246B77ED0015931A /* ComicsCollectionViewCell.swift */; };
+		29AC18AE246C3F210015931A /* ListaQuadrinhosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AC18AD246C3F210015931A /* ListaQuadrinhosViewController.swift */; };
 		2B1572D850F049B381D0F2FC /* Pods_Teste_Marvel_Teste_MarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A15FB1219CD27E777D9B3DB /* Pods_Teste_Marvel_Teste_MarvelUITests.framework */; };
 		74655AEF862E3643A15E7461 /* Pods_Teste_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9A08240F3F797FBC8F6468 /* Pods_Teste_Marvel.framework */; };
 		FD4849785A2BAF64A77BF8A1 /* Pods_Teste_MarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D67649E1980DC5EB20D2CE /* Pods_Teste_MarvelTests.framework */; };
@@ -65,6 +66,7 @@
 		29AC18A7246B63890015931A /* Pesquisa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pesquisa.swift; sourceTree = "<group>"; };
 		29AC18A9246B711A0015931A /* QuadrinhosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuadrinhosViewController.swift; sourceTree = "<group>"; };
 		29AC18AB246B77ED0015931A /* ComicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsCollectionViewCell.swift; sourceTree = "<group>"; };
+		29AC18AD246C3F210015931A /* ListaQuadrinhosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaQuadrinhosViewController.swift; sourceTree = "<group>"; };
 		37D67649E1980DC5EB20D2CE /* Pods_Teste_MarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Teste_MarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC671C5BEB5D435367664D5 /* Pods-Teste_Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teste_Marvel.release.xcconfig"; path = "Target Support Files/Pods-Teste_Marvel/Pods-Teste_Marvel.release.xcconfig"; sourceTree = "<group>"; };
 		56F1ED64A72D6534AA259AFB /* Pods-Teste_Marvel-Teste_MarvelUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Teste_Marvel-Teste_MarvelUITests.debug.xcconfig"; path = "Target Support Files/Pods-Teste_Marvel-Teste_MarvelUITests/Pods-Teste_Marvel-Teste_MarvelUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				29AC18A5246B4F120015931A /* CharacterTableViewCell.swift */,
 				29AC18A9246B711A0015931A /* QuadrinhosViewController.swift */,
 				29AC18AB246B77ED0015931A /* ComicsCollectionViewCell.swift */,
+				29AC18AD246C3F210015931A /* ListaQuadrinhosViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 			files = (
 				29AC18A8246B63890015931A /* Pesquisa.swift in Sources */,
 				290A3EF8246AF7350081AB8F /* ViewController.swift in Sources */,
+				29AC18AE246C3F210015931A /* ListaQuadrinhosViewController.swift in Sources */,
 				29AC18AC246B77ED0015931A /* ComicsCollectionViewCell.swift in Sources */,
 				290A3F28246B1E0E0081AB8F /* MarvelStruct.swift in Sources */,
 				29AC18A4246B3A7A0015931A /* APIMarvel.swift in Sources */,

@@ -23,6 +23,17 @@ struct MarvelData: Codable {
     let count: Int
     let results: [Character]
 }
+
+struct MarvelData2: Codable {
+    let offset: Int
+    let limit: Int
+    let total: Int
+    let count: Int
+    let results: [Comic]
+}
+
+
+
 // Personagens
 struct Character: Codable {
     let id: Int
@@ -63,4 +74,12 @@ struct ComicList: Codable {
 struct ComicSummary: Codable {
     let resourceURI:String
     let name: String
+}
+
+struct Comic: Codable {
+    let id: Int
+    let title: String
+    let description: String
+    let thumbnail: Thumbnail
+    
 }
