@@ -13,6 +13,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+   
+    
+    
+    
     var name: String? = ""
     var characters: [Character] = []
     // opcional
@@ -35,12 +39,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+    
         label.text = "Buscando Personagens ..."
         loadCharacters()
         
-        
+       
     }
 
+    
+    
     func loadCharacters() {
         
         loadingCharacters = true
@@ -59,12 +66,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // let vc = segue.destination as! ListaQuadrinhosViewController
-        let vc = segue.destination as! QuadrinhosViewController
-        vc.character = characters[tableView.indexPathForSelectedRow!.row]
-        
-    }
     
+            let vc = segue.destination as! QuadrinhosViewController
+            vc.character = characters[tableView.indexPathForSelectedRow!.row]
+
+        // Caso queira testar a lista normal - precisa mudar a segue para a outra view
+      //let vc = segue.destination as! ListaQuadrinhosViewController
+    //  vc.character = characters[tableView.indexPathForSelectedRow!.row]
+    
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,8 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
-    
+   
     
 }
 
