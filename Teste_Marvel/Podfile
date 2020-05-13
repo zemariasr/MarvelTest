@@ -1,0 +1,23 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Teste_Marvel' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Teste_Marvel
+
+	pod 'Alamofire'
+	pod 'Kingfisher'
+	pod 'SwiftHash'
+
+  target 'Teste_MarvelTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Teste_MarvelUITests' do
+    # Pods for testing
+  end
+
+end
