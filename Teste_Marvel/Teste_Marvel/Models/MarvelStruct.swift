@@ -15,6 +15,15 @@ struct MarvelInfo: Codable {
     let data: MarvelData
     
 }
+struct MarvelInfo2: Codable {
+    // verifica os dados do servidor
+    let code: Int
+    let status: String
+    let data: MarvelData2
+    
+}
+
+
 // verifica as quantidades, limite e personagens
 struct MarvelData: Codable {
     let offset: Int

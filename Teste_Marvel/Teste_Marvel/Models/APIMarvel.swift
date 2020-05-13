@@ -13,10 +13,10 @@ import Alamofire
 class APIMarvel {
     // informacoes na pagina da marvel do desenvolvedor
     static private let basepath = "https://gateway.marvel.com/v1/public/characters?"
-    static private let basepath2 = "https://gateway.marvel.com/v1/public/comics?"
+  //  static private let basepath2 = "https://gateway.marvel.com/v1/public/characters"
     static private let privateKey = "b60bc87d5641dae8eab0063d5d229761666e5067"
     static private let publicKey = "9533b37a303cbcb29bec9e4b444b30be"
-    static private let limit = 20
+    static private let limit = 30
 
     
     class func loadCharacters(name: String?, page: Int = 0, onComplete: @escaping (MarvelInfo?) -> Void) {
@@ -54,42 +54,45 @@ class APIMarvel {
     
     // MOntar a função caso precise fazer especifico para as revistas
    
-    /*
-    class func loadComics(id: Int?, page: Int = 0, onComplete: @escaping (MarvelInfo?) -> Void) {
+    
+    class func loadComics(id: String?, page: Int = 0, onComplete: @escaping (MarvelInfo2?) -> Void) {
         
         let offset = page * limit
         
         // para buscar revista pelo id
-        let codComic: Int
-        if let idComic = idComic, !idComic.isEmpty {
-            codComic = "nameStartsWith=\(name.replacingOccurrences(of: " ", with: ""))&"
+        let codChar: String
+        if let idChar = id, !idChar.isEmpty {
+            codChar = "\(idChar.replacingOccurrences(of: " ", with: ""))"
         } else {
-            codComic = ""
+            codChar = ""
         }
         
-        
+        let basepath2 = "https://gateway.marvel.com/v1/public/characters/\(codChar)/comics?"
         // montagem da url de consulta
-        let url = basepath + "offset=\(offset)&limit=\(limit)&" + codComic + getCredetials()
+       //  let url = basepath + "/\(id)/offset=\(offset)&limit=\(limit)&" + codChar + getCredetials()
+     //   let url = basepath2 + "offset=\(offset)&limit=\(limit)&" +  getCredetials()
+        let url = basepath2 + getCredetials()
         print(url)
         
         // Alamofire
         AF.request(url).responseJSON { (response) in
             
             guard let data = response.data,
-                let marvelInfo = try? JSONDecoder().decode(MarvelInfo.self, from: data),
+                let marvelInfo = try? JSONDecoder().decode(MarvelInfo2.self, from: data),
                 marvelInfo.code == 200 else {
+                    
                     onComplete(nil)
                     return
             }
             onComplete(marvelInfo)
-            
+            print("MarvelInfo code: \(marvelInfo.code)")
         }
         
         
     }
     
     
-    */
+    
     
     
     

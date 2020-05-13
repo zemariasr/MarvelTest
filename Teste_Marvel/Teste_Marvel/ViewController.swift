@@ -59,8 +59,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! ListaQuadrinhosViewController
-       // let vc = segue.destination as! QuadrinhosViewController
+       // let vc = segue.destination as! ListaQuadrinhosViewController
+        let vc = segue.destination as! QuadrinhosViewController
         vc.character = characters[tableView.indexPathForSelectedRow!.row]
         
     }

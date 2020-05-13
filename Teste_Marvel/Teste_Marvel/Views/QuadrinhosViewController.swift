@@ -20,13 +20,27 @@ class QuadrinhosViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var lb_descricao: UILabel!
     
     var character: Character!
+    var comics: [Comic] = []
+    var idCharacter: String!
     
+    var loadingComics = false
+    var currentPage = 0
+    var total = 0
+    
+    var label: UILabel = {
+           let label = UILabel()
+           label.textAlignment = .center
+           label.textColor = .yellow
+           return label
+       }()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        idCharacter = String(character.id)
+        
         lb_nome.text = character.name
         lb_descricao.text = character.description
         if let url = URL(string: character.thumbnail.url) {
@@ -42,6 +56,10 @@ class QuadrinhosViewController: UIViewController, UICollectionViewDelegate, UICo
         vi_collection.dataSource = self
         vi_collection.delegate = self
         
+         label.text = "Buscando Quadrinhos ..."
+        
+        loadComics()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -56,26 +74,66 @@ class QuadrinhosViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     */
 
+    func loadComics() {
+        loadingComics = true
+        APIMarvel.loadComics(id: idCharacter) { (info) in
+            if let info = info {
+            self.comics += info.data.results
+                self.total = info.data.total
+                print("Total:", self.total, "- já incluidos:", self.comics.count)
+              //  DispatchQueue.main.sync {
+                    self.loadingComics = false
+                    
+                self.vi_collection.reloadData()
+              //  }
+        }
+        
+    }
+    }
+    
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return character.comics.items.count
+       // return character.comics.items.count
+        return comics.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = vi_collection.dequeueReusableCell(withReuseIdentifier: "cellComic", for: indexPath) as! ComicsCollectionViewCell
         
-        let comic = character.comics.items[indexPath.item]
-        cell.prepareComic(with: comic)
+      //  let comic2 = character.comics.items[indexPath.item]
         
+        let comic2 = comics[indexPath.item]
+        cell.prepareComic(with: comic2)
+        
+        // Montar a parte que busca as imagens tb
         
         
         return cell
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.item == comics.count - 10 && !loadingComics && comics.count != total {
+            currentPage += 1
+            loadComics()
+        }
+        
+    }
     
+    /*
+     // Pagina Infinita
+      func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+         if indexPath.row == characters.count - 10 && !loadingCharacters && characters.count != total {
+             currentPage += 1
+             loadCharacters()
+         }
+     }
+     
+     */
     
     
 }

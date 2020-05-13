@@ -17,13 +17,21 @@ class ComicsCollectionViewCell: UICollectionViewCell {
     
     
     
-    func prepareComic(with comics: ComicSummary) {
+    func prepareComic(with comic: Comic) {
         
         
         //var comic = character.comics
         
-        lb_nomeComic.text = comics.name
+        lb_nomeComic.text = comic.title
+        if let url = URL(string: comic.thumbnail.url) {
+            iv_comics.kf.indicatorType = .activity
+            iv_comics.kf.setImage(with: url)
+        } else {
+            iv_comics.image = nil
+        }
  
+        
+        
     }
     
     
