@@ -8,15 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    @IBOutlet weak var tableView: UITableView!
-    
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
    
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sb_nome: UISearchBar!
     
-    
+   
     var name: String? = ""
     var characters: [Character] = []
     // opcional
@@ -38,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        sb_nome.delegate = self
     
         label.text = "Buscando Personagens ..."
         loadCharacters()
@@ -103,8 +101,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+// Parte da consulta - filtro de personagem
+    @IBAction func searchHidden(_ sender: Any) {
+        
+        if sb_nome.isHidden == false {
+                   sb_nome.isHidden = true
+               } else {
+                   sb_nome.isHidden = false
+               }
+    }
     
-   
+    
+   func updateSearchResults(for searchController: UISearchController) {
+          
+      }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        loadCharacters()
+    
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        name = searchBar.text
+        characters.removeAll()
+        tableView.reloadData()
+        loadCharacters()
+        view.endEditing(true)
+        searchBar.text = ""
+        
+    }
+    
+    
+    
+    // Quando clicar fora ele fecha o teclado
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     
 }
 

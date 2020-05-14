@@ -30,11 +30,6 @@ class ComicsCollectionViewCell: UICollectionViewCell {
             iv_comics.image = nil
         }
  
-        
-        
     }
-    
-    
-    
     
 }

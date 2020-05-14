@@ -57,7 +57,7 @@ class APIMarvel {
     
     class func loadComics(id: String?, page: Int = 0, onComplete: @escaping (MarvelInfo2?) -> Void) {
         
-        let offset = page * limit
+      //  let offset = page * limit
         
         // para buscar revista pelo id
         let codChar: String

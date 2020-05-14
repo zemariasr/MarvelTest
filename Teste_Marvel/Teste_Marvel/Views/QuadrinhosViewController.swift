@@ -50,8 +50,9 @@ class QuadrinhosViewController: UIViewController, UICollectionViewDelegate, UICo
             iv_character.image = nil
         }
         
-        iv_character.layer.borderColor = UIColor.black.cgColor
-        iv_character.layer.borderWidth = 1
+        iv_character.layer.borderColor = UIColor.yellow.cgColor
+        iv_character.layer.borderWidth = 2
+        iv_character.layer.cornerRadius = 8
         
         vi_collection.dataSource = self
         vi_collection.delegate = self
