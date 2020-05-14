@@ -101,6 +101,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    
+    
+    @IBAction func refresh(_ sender: Any) {
+        characters.removeAll()
+        tableView.reloadData()
+        loadCharacters()
+    }
+    
+    
+    
 // Parte da consulta - filtro de personagem
     @IBAction func searchHidden(_ sender: Any) {
         
@@ -129,6 +139,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         loadCharacters()
         view.endEditing(true)
         searchBar.text = ""
+        name = ""
         
     }
     

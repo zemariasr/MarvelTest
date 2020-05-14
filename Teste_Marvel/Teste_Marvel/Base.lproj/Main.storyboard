@@ -107,6 +107,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="PERSONAGENS MARVEL" id="Ab1-sC-UXE">
                         <barButtonItem key="backBarButtonItem" title="Personagens" id="5BN-JE-Bnu"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="z24-M3-Rdt">
+                            <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="refresh:" destination="BYZ-38-t0r" id="ITm-CA-DTi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="0nX-gA-pyf">
                             <color key="tintColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
